@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block 'link-css' %}
+    <link rel="stylesheet" href="{% static 'authentication/css/registration.css' %}">
+{% endblock %}
+
+{% block 'title' %}Cadastre-se{% endblock %}
+
+{% block 'body' %}
+    <div class="container-fluid">
+        <div class="row vh-100">
+            <div class="col-sm-3 sidebar">
+                <div class="text-center">
+                    <img class="w-100" src="{% static 'authentication/img/logo_nutri_lab.png' %}">
+                </div>
+            </div>
+
+            <div class="col-sm-9">
+                {% include 'alert-message.html' %}
+
+                <div class="area-registration">
+                    <h1 class="fw-bold display-6 mb-5">Seja Bem Vindo</h1>
+                    <h5 class="text-muted">Crie sua conta</h5>
+                    <hr>
+
+                    <form class="needs-validation" action="{% url 'authentication:registration' %}" method="POST" novalidate> {% csrf_token %}
+                        <label class="form-label fw-bold" for="username">Nome de usuário</label>
+                        <input class="form-control input-form mt-1" id="username" name="username" type="text" placeholder="(e.g. João, Maria, Pedro)" required autofocus>
+                        <div class="invalid-feedback">
+                            Por favor, informe seu nome de usuário!
+                        </div>
+
+                        <label class="fw-bold mt-3" for="email">E-mail</label>
+                        <input class="form-control input-form mt-1" id="email" name="email" type="email" placeholder="(e.g. fulano@server.com)" required>
+                        <div class="invalid-feedback">
+                            Por favor, informe um endereço de e-mail válido!
+                        </div>
+
+                        <div class="row row-cols-1 row-cols-md-2">
+                            <div class="col">
+                                <label class="fw-bold mt-3" for="password">Senha</label>
+                                <input class="form-control input-form mt-1" id="password" name="password" type="password" placeholder="Digite sua senha" required>
+                                <div class="invalid-feedback">
+                                    Por favor, informe sua senha!
+                                </div>
+                            </div>
+        
+                            <div class="col">
+                                <label class="fw-bold mt-3" for="confirm_password">Confirmar senha</label>
+                                <input class="form-control input-form mt-1" id="confirm_password" name="confirm_password" type="password" placeholder="Confirme a senha digitada" required>
+                                <div class="invalid-feedback">
+                                    Por favor, informe a mesma senha digitada no campo senha!
+                                </div>
+                            </div>
+                        </div>
+
+                        <button class="btn btn-lg btn-nutrilab fw-bold mt-3 px-5" type="submit">Registrar-se</button>
+                    </form>
+                    <hr>
+                </div>
+
+                <h4 class="float-shortcut-bottom">Já possui uma conta?<a href="{% url 'authentication:login' %}" class="btn btn-outline-success ms-3">Logar-se</a></h4>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+    
+{% block 'script-src' %}
+    <script src="{% static 'authentication/js/registration.js' %}"></script>
+{% endblock %}

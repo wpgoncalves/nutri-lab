@@ -1,0 +1,52 @@
+@charset "UTF-8";
+
+.sidebar {
+    background-color: #27db8f;
+}
+
+@media (min-width: 576px) {
+    .sidebar {
+        background-image: url("/static/authentication/img/fundo_background.png");
+        background-color: #27db8f;
+        background-size: cover;
+        background-position: center center;
+        background-repeat: no-repeat;
+    }
+}
+
+.area-registration {
+    margin-top: 5%;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.input-form:focus {
+    border-color: #27db8f !important;
+    box-shadow: 0 0 0 0.25rem rgba(39, 219, 143, 0.25) !important;
+}
+
+.btn-nutrilab {
+    color: #fff;
+    background-color: #27db8f;
+    border-color: #27db8f;
+}
+
+.btn-nutrilab:hover {
+    color: #fff;
+    background-color: #348015;
+    border-color: #27db8f;
+}
+
+.btn-check:focus + .btn-nutrilab, .btn-nutrilab:focus {
+    color: #fff;
+    background-color: #348015;
+    border-color: #27db8f;
+    box-shadow: 0 0 0 0.25rem rgba(39, 219, 143, 0.5);
+}
+
+.float-shortcut-bottom {
+    position: relative;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-bottom: 5%;
+}

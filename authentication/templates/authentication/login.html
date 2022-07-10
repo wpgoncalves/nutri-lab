@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block 'link-css' %}
+    <link rel="stylesheet" href="{% static 'authentication/css/registration.css' %}">
+{% endblock %}
+
+{% block 'titulo' %}Login{% endblock %}
+
+{% block 'body' %}
+    <div class="container-fluid">
+        <div class="row vh-100">
+            <div class="col-sm-3 sidebar">
+                <div class="text-center">
+                    <img class="w-100" src="{% static 'authentication/img/logo_nutri_lab.png' %}">
+                </div>
+            </div>
+
+            <div class="col-sm-9">
+                {% include 'alert-message.html' %}
+
+                <div class="area-registration">
+                    <h1 class="fw-bold display-6 mb-5">Seja Bem Vindo</h1>
+                    <h5 class="text-muted">Entre com sua conta</h5>
+                    <hr>
+
+                    <form class="needs-validation" action="" method="POST" novalidate> {% csrf_token %}
+                        <label class="form-label fw-bold" for="username">Nome de usuário</label>
+                        <input class="form-control input-form mt-1" id="username" name="username" type="text" placeholder="(e.g. João, Maria, Pedro)" required autofocus>
+                        <div class="invalid-feedback">
+                            Por favor, informe seu nome de usuário!
+                        </div>
+
+                        <label class="form-label fw-bold mt-3" for="password">Senha</label>
+                        <input class="form-control input-form mt-1" id="password" name="password" type="password" placeholder="Digite sua senha" required>
+                        <div class="invalid-feedback">
+                            Por favor, informe sua senha!
+                        </div>
+
+                        <button class="btn btn-lg btn-nutrilab fw-bold mt-3 px-5" type="submit">Logar-se</button>
+                    </form>
+                    <hr>
+                </div>
+                
+                <h4 class="float-shortcut-bottom">Não tem uma conta?<a href="{% url 'authentication:registration' %}" class="btn btn-outline-success ms-3">Registre-se</a></h4>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block 'script-src' %}
+    <script src="{% static 'authentication/js/registration.js' %}"></script>
+{% endblock %}
